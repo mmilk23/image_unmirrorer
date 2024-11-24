@@ -33,6 +33,9 @@ jobs:
     - name: Run tests
       run: mix test
     - name: Upload coverage reports to Codecov
-      uses: codecov/codecov-action@v4
+      uses: codecov/codecov-action@v5
       with:
+        fail_ci_if_error: true
+        flags: unittests # optional
         token: ${{ secrets.CODECOV_TOKEN }}
+        verbose: true
