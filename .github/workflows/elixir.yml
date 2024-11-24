@@ -31,13 +31,13 @@ jobs:
     - name: Install dependencies
       run: mix deps.get
     - name: Run tests
-      run: mix test
+      run: mix test  
     - name: Run tests with coverage
       run: mix coveralls.json
     - name: Upload coverage reports to Codecov
       uses: codecov/codecov-action@v5
       with:
         fail_ci_if_error: true
-        flags: unittests # optional
+        flags: unittests test_results
         token: ${{ secrets.CODECOV_TOKEN }}
         verbose: true

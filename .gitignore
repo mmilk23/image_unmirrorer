@@ -27,3 +27,5 @@ image_unmirrorer-*.tar
 
 # builds
 _build
+
+junit.xml

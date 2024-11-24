@@ -38,7 +38,8 @@ defmodule ImageUnmirrorer.MixProject do
       {:jason, "~> 1.4"},
       {:open_api_spex, "~> 3.21"},
       {:excoveralls, "~> 0.18", only: [:test], runtime: false},
-      {:mox, "~> 1.0", only: :test}
+      {:mox, "~> 1.0", only: :test},
+      {:junit_formatter, "~> 3.4", only: :test, runtime: false}
     ]
   end
 end
