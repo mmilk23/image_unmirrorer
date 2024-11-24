@@ -1,6 +1,11 @@
 # Image Unmirrorer
+============
+[![Build Status](https://github.com/mmilk23/image_unmirrorer/actions/workflows/elixir.yml/badge.svg)](https://github.com/mmilk23/image_unmirrorer/actions)
+[![codecov](https://codecov.io/gh/mmilk23/image_unmirrorer/branch/main/graph/badge.svg)](https://codecov.io/gh/mmilk23/image_unmirrorer)
+[![Last Updated](https://img.shields.io/github/last-commit/mmilk23/image_unmirrorer.svg)](https://github.com/mmilk23/image_unmirrorer/commits/main)
 
-## Overview
+
+
 The **Image Unmirrorer** is an API that allows users to upload an image and receive a horizontally mirrored version in return. 
 Developed in Elixir, this project can be easily run using Docker, making it simple and quick to set up.
 

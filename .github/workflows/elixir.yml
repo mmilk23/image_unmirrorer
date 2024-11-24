@@ -46,7 +46,3 @@ jobs:
         flags: unittests test_results
         token: ${{ secrets.CODECOV_TOKEN }}
         verbose: true
-    - name: Upload coverage to Coveralls
-      run: mix coveralls.github
-      env:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
