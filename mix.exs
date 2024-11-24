@@ -1,4 +1,4 @@
-#.\mix.exs
+# .\mix.exs
 defmodule ImageUnmirrorer.MixProject do
   use Mix.Project
 
@@ -9,9 +9,15 @@ defmodule ImageUnmirrorer.MixProject do
       elixir: "~> 1.17",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
-      test_coverage: [
-        tool: ExCoveralls
-      ]    ]
+      test_coverage: [tool: ExCoveralls],
+      preferred_cli_env: [
+        coveralls: :test,
+        "coveralls.detail": :test,
+        "coveralls.post": :test,
+        "coveralls.html": :test,
+        "coveralls.cobertura": :test
+      ]
+    ]
   end
 
   # Run "mix help compile.app" to learn about applications.
