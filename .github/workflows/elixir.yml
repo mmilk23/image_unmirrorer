@@ -47,6 +47,6 @@ jobs:
         token: ${{ secrets.CODECOV_TOKEN }}
         verbose: true
     - name: Upload coverage to Coveralls
-      uses: coverallsapp/github-action@v2
-      with:
+      run: mix coveralls.github
+      env:
         github-token: ${{ secrets.GITHUB_TOKEN }}
