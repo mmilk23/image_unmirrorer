@@ -16,7 +16,8 @@ defmodule ImageUnmirrorer.MixProject do
         "coveralls.post": :test,
         "coveralls.html": :test,
         "coveralls.cobertura": :test,
-        "coveralls.json": :test
+        "coveralls.json": :test,
+        "coveralls.github": :test
       ]
     ]
   end
