@@ -33,8 +33,8 @@ defmodule ImageUnmirrorer.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:plug, "~> 1.14"},
-      {:plug_cowboy, "~> 2.6"},
+      {:plug, "~> 1.16"},
+      {:plug_cowboy, "~> 2.7"},
       {:image, "~> 0.54.4"},
       {:jason, "~> 1.4"},
       {:open_api_spex, "~> 3.21"},
