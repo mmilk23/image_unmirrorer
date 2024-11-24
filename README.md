@@ -3,8 +3,8 @@
 [![Build Status](https://github.com/mmilk23/image_unmirrorer/actions/workflows/elixir.yml/badge.svg)](https://github.com/mmilk23/image_unmirrorer/actions)
 [![codecov](https://codecov.io/gh/mmilk23/image_unmirrorer/branch/main/graph/badge.svg)](https://codecov.io/gh/mmilk23/image_unmirrorer)
 [![Coverage Status](https://coveralls.io/repos/github/mmilk23/image_unmirrorer/badge.svg)](https://coveralls.io/github/mmilk23/image_unmirrorer)
+![Dependabot](https://github.com/mmilk23/image_unmirrorer/actions/workflows/dependabot.yml/badge.svg)
 [![Last Updated](https://img.shields.io/github/last-commit/mmilk23/image_unmirrorer.svg)](https://github.com/mmilk23/image_unmirrorer/commits/main)
-
 
 
 The **Image Unmirrorer** is an API that allows users to upload an image and receive a horizontally mirrored version in return. 
