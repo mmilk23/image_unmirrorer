@@ -5,50 +5,52 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+  workflow_dispatch:
 
 permissions:
   contents: read
 
 jobs:
   build:
-
-    name: Build and test
+    name: Build and Test
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
+    - name: Checkout code
+      uses: actions/checkout@v4
+
     - name: Set up Elixir
-      uses: erlef/setup-beam@61e01a43a562a89bfc54c7f9a378ff67b03e4a21 # v1.16.0
+      uses: erlef/setup-beam@v1
       with:
-        elixir-version: '1.17' # [Required] Define the Elixir version
-        otp-version: '27'      # [Required] Define the Erlang/OTP version
+        elixir-version: '1.17' # Define the Elixir version
+        otp-version: '27'      # Define the Erlang/OTP version
+
     - name: Restore dependencies cache
       uses: actions/cache@v3
       with:
         path: deps
         key: ${{ runner.os }}-mix-${{ hashFiles('**/mix.lock') }}
-        restore-keys: ${{ runner.os }}-mix-
+        restore-keys: |
+          ${{ runner.os }}-mix-
+
     - name: Install dependencies
       run: mix deps.get
+
     - name: Run tests
-      run: mix test  
-    - name: Upload test results to Codecov
-      if: ${{ !cancelled() }}
-      uses: codecov/test-results-action@v1
-      with:
-        token: ${{ secrets.CODECOV_TOKEN }}
+      run: mix test
+
     - name: Run tests with coverage
       run: mix coveralls.json
+
     - name: Upload coverage reports to Codecov
       uses: codecov/codecov-action@v5
       with:
-        fail_ci_if_error: true
-        flags: unittests test_results
         token: ${{ secrets.CODECOV_TOKEN }}
+        fail_ci_if_error: true
         verbose: true
+
     - name: Report Coveralls (Linux)
       run: mix coveralls.github
       env:
         COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
