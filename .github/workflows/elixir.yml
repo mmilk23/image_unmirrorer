@@ -32,3 +32,7 @@ jobs:
       run: mix deps.get
     - name: Run tests
       run: mix test
+    - name: Upload coverage reports to Codecov
+      uses: codecov/codecov-action@v4
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
