@@ -1,0 +1,11 @@
+# Ignore local dependencies and builds
+/_build
+/deps
+
+# Ignore editor and IDE config
+/.vscode
+/.idea
+*.swp
+
+# Ignore test files
+/test

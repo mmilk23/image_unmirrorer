@@ -1,0 +1,10 @@
+services:
+  image_unmirrorer:
+    build: .
+    ports:
+      - "4000:4000"
+    environment:
+      MIX_ENV: dev
+    volumes:
+      - .:/app
+    command: mix run --no-halt
