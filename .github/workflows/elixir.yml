@@ -32,6 +32,11 @@ jobs:
       run: mix deps.get
     - name: Run tests
       run: mix test  
+    - name: Upload test results to Codecov
+      if: ${{ !cancelled() }}
+      uses: codecov/test-results-action@v1
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
     - name: Run tests with coverage
       run: mix coveralls.json
     - name: Upload coverage reports to Codecov
