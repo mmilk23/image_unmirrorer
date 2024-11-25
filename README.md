@@ -3,7 +3,7 @@
 [![Build Status](https://github.com/mmilk23/image_unmirrorer/actions/workflows/elixir.yml/badge.svg)](https://github.com/mmilk23/image_unmirrorer/actions)
 [![codecov](https://codecov.io/gh/mmilk23/image_unmirrorer/branch/main/graph/badge.svg)](https://codecov.io/gh/mmilk23/image_unmirrorer)
 [![Coverage Status](https://coveralls.io/repos/github/mmilk23/image_unmirrorer/badge.svg)](https://coveralls.io/github/mmilk23/image_unmirrorer)
-![Dependabot](https://github.com/mmilk23/image_unmirrorer/actions/dependabot.yml/badge.svg)
+![Dependabot](https://img.shields.io/badge/Dependabot-enabled-brightgreen)
 [![Last Updated](https://img.shields.io/github/last-commit/mmilk23/image_unmirrorer.svg)](https://github.com/mmilk23/image_unmirrorer/commits/main)
 
 
