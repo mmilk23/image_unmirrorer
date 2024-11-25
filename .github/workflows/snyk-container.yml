@@ -44,7 +44,8 @@ jobs:
       run: |
         sed -i 's/"security-severity": "undefined"/"security-severity": "0"/g' fixed_snyk.sarif
         sed -i 's/"security-severity": "null"/"security-severity": "0"/g' fixed_snyk.sarif
-
+        cat  fixed_snyk.sarif
+        
     - name: Upload result to GitHub Code Scanning
       uses: github/codeql-action/upload-sarif@v3
       with:
