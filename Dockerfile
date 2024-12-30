@@ -1,6 +1,6 @@
 ### Dockerfile
 # Use the official Elixir image as a base
-FROM elixir:1.17
+FROM elixir:1.18
 
 # Install dependencies and prepare for the release
 RUN mix local.hex --force && \
