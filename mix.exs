@@ -35,7 +35,7 @@ defmodule ImageUnmirrorer.MixProject do
     [
       {:plug, "~> 1.16"},
       {:plug_cowboy, "~> 2.7"},
-      {:image, "~> 0.55.2"},
+      {:image, "~> 0.56.0"},
       {:jason, "~> 1.4"},
       {:open_api_spex, "~> 3.21"},
       {:excoveralls, "~> 0.18", only: [:test], runtime: false},
