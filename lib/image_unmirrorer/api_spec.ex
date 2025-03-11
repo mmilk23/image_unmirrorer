@@ -88,7 +88,75 @@ defmodule ImageUnmirrorer.ApiSpec do
               }
             }
           }
+        },
+        "/grayscale" => %PathItem{
+          post: %Operation{
+            tags: ["Image Operations"],
+            summary: "grayscale an image",
+            description: "Receives an image and returns a grayscale version of it.",
+            operationId: "ImageUnmirrorer.Grayscale",
+            requestBody: %RequestBody{
+              description: "Image to be grayscaled",
+              required: true,
+              content: %{
+                "image/jpeg" => %OpenApiSpex.MediaType{
+                  schema: %Schema{
+                    type: :string,
+                    format: :binary
+                  }
+                },
+                "image/png" => %OpenApiSpex.MediaType{
+                  schema: %Schema{
+                    type: :string,
+                    format: :binary
+                  }
+                }
+              }
+            },
+            responses: %{
+              200 => %Response{
+                description: "Grayscale image",
+                content: %{
+                  "image/jpeg" => %OpenApiSpex.MediaType{
+                    schema: %Schema{
+                      type: :string,
+                      format: :binary
+                    }
+                  }
+                }
+              },
+              422 => %Response{
+                description: "Unprocessable Entity",
+                content: %{
+                  "application/json" => %OpenApiSpex.MediaType{
+                    schema: %Schema{
+                      type: :object,
+                      properties: %{
+                        error: %Schema{type: :string}
+                      },
+                      required: [:error]
+                    }
+                  }
+                }
+              },
+              500 => %Response{
+                description: "Internal Server Error",
+                content: %{
+                  "application/json" => %OpenApiSpex.MediaType{
+                    schema: %Schema{
+                      type: :object,
+                      properties: %{
+                        error: %Schema{type: :string}
+                      },
+                      required: [:error]
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
+
       }
     }
     |> OpenApiSpex.resolve_schema_modules() # Discover request/response schemas from path specs

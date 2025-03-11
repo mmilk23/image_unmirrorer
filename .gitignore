@@ -29,3 +29,6 @@ image_unmirrorer-*.tar
 _build
 
 junit.xml
+__azurite_db_blob__.json
+__azurite_db_blob_extent__.json
+priv/static/broken.txt

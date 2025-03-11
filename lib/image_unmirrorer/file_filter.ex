@@ -10,7 +10,7 @@ defmodule ImageUnmirrorer.FileFilter do
   import Plug.Conn
 
   @allowed_extensions ~w(.html .css .json .js)
-  @allowed_files ~w(favicon.ico testmirror.html) # Arquivos específicos permitidos
+  @allowed_files ~w(favicon.ico testmirror.html)
 
   def init(opts), do: opts
 

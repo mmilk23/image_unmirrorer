@@ -11,5 +11,6 @@ defmodule Image.Behaviour do
 
   @callback from_binary(binary()) :: {:ok, any()} | {:error, term()}
   @callback flip(any(), atom()) :: {:ok, any()} | {:error, term()}
+  @callback grayscale(any(), atom()) :: {:ok, any()} | {:error, term()}
   @callback write(any(), atom(), keyword()) :: {:ok, binary()} | {:error, term()}
 end
