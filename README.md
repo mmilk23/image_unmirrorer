@@ -7,24 +7,26 @@
 [![Last Updated](https://img.shields.io/github/last-commit/mmilk23/image_unmirrorer.svg)](https://github.com/mmilk23/image_unmirrorer/commits/main)
 
 
-The **Image Unmirrorer** is an API that allows users to upload an image and receive a horizontally mirrored version in return. 
-Developed in Elixir, this project can be easily run using Docker, making it simple and quick to set up.
+The **Image Unmirrorer** 
+
+This project provides a set of APIs for image manipulation and processing, currently under active development. The /mirror endpoint allows users to upload an image and receive a horizontally mirrored version, while the /grayscale endpoint returns a grayscale version of the uploaded image.
+
+Developed in Elixir and containerized with Docker, the project is easy to set up and deploy. It serves as an excellent example application for newcomers to Elixir programming, demonstrating fundamental concepts in API design and image processing.
 
 ## Features
-- Mirrors uploaded images (supports JPEG and PNG formats).
+- Mirrors/grayscale uploaded images (supports JPEG and PNG formats).
 - Easy integration via RESTful API.
 
 ## Live Demo 🌟
 
 Explore the features of the application through the link below:
 
-🔗 [Try the Live Demo](https://image-unmirrorer.gigalixirapp.com/testmirror.html)
+🔗 [Try the Live Demo](https://image-unmirrorer.gigalixirapp.com/testmirror.html) (https://image-unmirrorer.gigalixirapp.com/testgrayscale.html)
 
 ### OpenAPI Specification
 To access the API specification (OpenAPI), click the link below:
 
 📜 [View OpenAPI Spec](https://image-unmirrorer.gigalixirapp.com/openapi.json)
-
 
 
 ## How to Run the Project
@@ -81,6 +83,7 @@ To access the API specification (OpenAPI), click the link below:
 
 ## API Endpoints
 - **POST /mirror**: Receives an image and returns its horizontally mirrored version.
+- **POST /grayscale**: Receives an image and returns a grayscale version of the image.
 - **GET /openapi.json**: Provides the OpenAPI specification for the API.
 
 
@@ -93,6 +96,7 @@ curl -X POST http://localhost:4000/mirror -H "Content-Type: image/jpeg" --data-b
 You can test the application by accessing the `testmirror.html` file in your browser:
 ```
 http://localhost:4000/testmirror.html
+http://localhost:4000/testgrayscale.html
 ```
 
 Alternatively, you can use a CURL command:
@@ -123,4 +127,3 @@ If you found this project helpful, please consider giving it a star ⭐️.
 
 ## Contact
 For more information, visit the [GitHub repository](https://github.com/mmilk23/image_unmirrorer).
-
