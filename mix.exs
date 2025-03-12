@@ -18,6 +18,12 @@ defmodule ImageUnmirrorer.MixProject do
         "coveralls.cobertura": :test,
         "coveralls.json": :test,
         "coveralls.github": :test
+      ],
+      releases: [
+        image_unmirrorer: [
+          include_executables_for: [:unix],
+          steps: [:assemble]
+        ]
       ]
     ]
   end
@@ -35,7 +41,7 @@ defmodule ImageUnmirrorer.MixProject do
     [
       {:plug, "~> 1.16"},
       {:plug_cowboy, "~> 2.7"},
-      {:image, "~> 0.57"},
+      {:image, "~> 0.58"},
       {:jason, "~> 1.4"},
       {:open_api_spex, "~> 3.21"},
       {:excoveralls, "~> 0.18.5", only: [:test], runtime: false},
