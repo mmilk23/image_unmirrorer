@@ -19,9 +19,11 @@ defmodule ImageUnmirrorer.ApplicationTest do
     # Get children of the supervisor
     children = Supervisor.which_children(sup_pid)
 
-    # Verify that Plug.Cowboy listener is one of the children
-    assert Enum.any?(children, fn {id, _pid, _type, _modules} ->
-      id == {:ranch_listener_sup, ImageUnmirrorer.Router.HTTP}
+    # Verify that the HTTP listener is one of the children without depending
+    # on Ranch's internal supervisor name, which can change between versions.
+    assert Enum.any?(children, fn
+      {{_ranch_supervisor, ImageUnmirrorer.Router.HTTP}, _pid, :supervisor, _modules} -> true
+      _child -> false
     end)
   end
 end
