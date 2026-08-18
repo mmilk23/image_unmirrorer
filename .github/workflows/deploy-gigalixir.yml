@@ -35,13 +35,13 @@ jobs:
         shell: bash
         env:
           GIGALIXIR_EMAIL: ${{ secrets.GIGALIXIR_EMAIL }}
-          GIGALIXIR_API_KEY: ${{ secrets.GIGALIXIR_API_KEY }}
+          GIGALIXIR_GIT_PASSWORD: ${{ secrets.GIGALIXIR_GIT_PASSWORD }}
         run: |
           set -euo pipefail
           test -n "$GIGALIXIR_EMAIL" || { echo "GIGALIXIR_EMAIL secret is not configured" >&2; exit 1; }
-          test -n "$GIGALIXIR_API_KEY" || { echo "GIGALIXIR_API_KEY secret is not configured" >&2; exit 1; }
+          test -n "$GIGALIXIR_GIT_PASSWORD" || { echo "GIGALIXIR_GIT_PASSWORD secret is not configured" >&2; exit 1; }
           git config --global credential.helper store
-          printf 'https://%s:%s@git.gigalixir.com\n' "$GIGALIXIR_EMAIL" "$GIGALIXIR_API_KEY" > "$HOME/.git-credentials"
+          printf 'https://%s:%s@git.gigalixir.com\n' "$GIGALIXIR_EMAIL" "$GIGALIXIR_GIT_PASSWORD" > "$HOME/.git-credentials"
           chmod 600 "$HOME/.git-credentials"
 
       - name: Deploy selected commit
