@@ -2,9 +2,9 @@ name: Elixir CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "development" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "main", "development" ]
   workflow_dispatch:
 
 permissions:
@@ -22,8 +22,8 @@ jobs:
     - name: Set up Elixir
       uses: erlef/setup-beam@v1
       with:
-        elixir-version: '1.17' # Define the Elixir version
-        otp-version: '27'      # Define the Erlang/OTP version
+        elixir-version: '1.17'
+        otp-version: '27'
 
     - name: Restore dependencies cache
       uses: actions/cache@v3
