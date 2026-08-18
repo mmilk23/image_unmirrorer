@@ -1,12 +1,13 @@
-#.github\dependabot.yml
 version: 2
 updates:
   - package-ecosystem: "mix"
     directory: "/"
+    target-branch: "development"
     schedule:
       interval: "daily"
 
   - package-ecosystem: "docker"
     directory: "/"
+    target-branch: "development"
     schedule:
       interval: "weekly"
