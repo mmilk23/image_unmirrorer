@@ -1,0 +1,52 @@
+name: Deploy to Gigalixir
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: gigalixir-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Deploy to Gigalixir
+    runs-on: ubuntu-latest
+    if: ${{ github.actor == github.repository_owner }}
+
+    steps:
+      - name: Checkout selected revision
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Verify deployment source
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "Repository owner: ${{ github.repository_owner }}"
+          echo "Triggered by: ${{ github.actor }}"
+          echo "Selected ref: ${{ github.ref_name }}"
+          echo "Commit: ${{ github.sha }}"
+
+      - name: Configure Gigalixir credentials
+        shell: bash
+        env:
+          GIGALIXIR_EMAIL: ${{ secrets.GIGALIXIR_EMAIL }}
+          GIGALIXIR_API_KEY: ${{ secrets.GIGALIXIR_API_KEY }}
+        run: |
+          set -euo pipefail
+          test -n "$GIGALIXIR_EMAIL" || { echo "GIGALIXIR_EMAIL secret is not configured" >&2; exit 1; }
+          test -n "$GIGALIXIR_API_KEY" || { echo "GIGALIXIR_API_KEY secret is not configured" >&2; exit 1; }
+          git config --global credential.helper store
+          printf 'https://%s:%s@git.gigalixir.com\n' "$GIGALIXIR_EMAIL" "$GIGALIXIR_API_KEY" > "$HOME/.git-credentials"
+          chmod 600 "$HOME/.git-credentials"
+
+      - name: Deploy selected commit
+        shell: bash
+        run: |
+          set -euo pipefail
+          git remote add gigalixir https://git.gigalixir.com/image-unmirrorer.git
+          git push --force-with-lease gigalixir HEAD:refs/heads/main
